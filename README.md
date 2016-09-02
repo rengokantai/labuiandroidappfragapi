@@ -39,7 +39,8 @@ use fragment in MainActivity, replace TextView
 tools:layout="@layout/fragment_blank"/>
 ```
 ######Explore the FragmentTransaction class
-create placeholder, do not need to add class prop here.
+create placeholder, do not need to add class prop here.  
+activity_main.xml
 ```
 <FrameLayout android:id="@+id/fragment_container" />
 ```
@@ -55,3 +56,33 @@ remove fragment
 getSupportFragmentManager().beginTransaction().remove(bf).commit();
 ```
 ######Add a fragment with Java
+02:53  
+add button (centerHorizontal,alignParentBottom)
+
+
+######Remove a fragment with Java
+use tag as reference
+```
+public static final String TAG ="KE_TAG"
+```
+add fragment use tag as third parameter
+```
+add(R.id.fragment_container,bf,TAG).commit();
+```
+delete fragment using findFragmentByTag
+```
+Fragment bf = getSupportFragmentManager().findFragmentByTag(TAG);
+```
+addToBackStack: remove when press back
+```
+beginTransaction().addToBackStack(null).add(R.id.fragment_container,bf,TAG).commit();
+```
+######The lifecycle of a fragment
+resumed: visible and interactive  
+paused: can be visible but without focus  
+stopped: not visible
+```
+onAttach(save ref of containing activity)->onCreate(retrieve values from fragment)->onCreateView(get reference from layout->
+onActivityCreated()->onStart()->onResume()...->onPause()->onStop()
+onDestroyView()->onDestroy()->onDetach()
+```
