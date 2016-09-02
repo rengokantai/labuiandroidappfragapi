@@ -121,3 +121,27 @@ public static BlankFragment newInstance(){
 }
 ```
 for Fragment classes's default constructor,you cant use private
+######Measure screen with Java
+ScreenUtility.java
+```
+public class ScreenUtility{
+  float w;
+  float h;
+  public ScreenUtility(Activity activity){
+    Display d = activity.getWindowManager().getDefaultDisplay();
+    DisplayMetrics dm = new DisplayMetrics();
+    d.getMetrics(dm);
+    
+    float density = activity.getResources().getDisplayMetrics().density;
+    h = dm.heightPixels/density;
+    w = dm.widthPixels/density;
+  }
+  public float getW(){}
+}
+```
+
+impl in MainActivity
+```
+ScreenUtility su = new ScreenUtility(this)l
+if(su.getW()>=800){}
+```
