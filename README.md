@@ -91,6 +91,8 @@ onDestroyView()->onDestroy()->onDetach()
 add fragment: trigger onAttach, onCreate, onCreateView,onResume  
 remove fragment: trigger onPause,onStop  
 addTobackStack: trigger onDestroy,onDetach
+
+
 #####3. Manage Fragments at Runtime
 ######Pass arguments to a fragment
 Using Bundle (k,v) k=string
@@ -108,3 +110,14 @@ if(b!=null){
 }
 return view;
 ```
+######Manage arguments with a factory method
+BlankFragment.java
+```
+public static BlankFragment newInstance(){
+  Bundle b =new Bundle();
+  BlankFragment bf = new BlankFragment();
+  bf.setArguments(b);
+  return bf;
+}
+```
+for Fragment classes's default constructor,you cant use private
