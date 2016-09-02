@@ -86,3 +86,8 @@ onAttach(save ref of containing activity)->onCreate(retrieve values from fragmen
 onActivityCreated()->onStart()->onResume()...->onPause()->onStop()
 onDestroyView()->onDestroy()->onDetach()
 ```
+######Trace lifecycle events with LogCat
+04:00  
+add fragment: trigger onAttach, onCreate, onCreateView,onResume  
+remove fragment: trigger onPause,onStop  
+addTobackStack: trigger onDestroy,onDetach
