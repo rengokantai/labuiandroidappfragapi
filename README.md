@@ -33,3 +33,25 @@ other settings
 android:layout_centerInParent="true"
 android:textSize="24dp"
 ```
+use fragment in MainActivity, replace TextView
+```
+<fragment android:id=@+/blank_fragment" class="com..BlankFragment" android:layout_width="wrap_content"
+tools:layout="@layout/fragment_blank"/>
+```
+######Explore the FragmentTransaction class
+create placeholder, do not need to add class prop here.
+```
+<FrameLayout android:id="@+id/fragment_container" />
+```
+
+java code to add this fragment
+```
+BlankFragment bf = new BlankFragment();
+getSupportFragmentManager().beginTransaction().add(R.id.fragment_container,bf).commit();
+```
+
+remove fragment
+```
+getSupportFragmentManager().beginTransaction().remove(bf).commit();
+```
+######Add a fragment with Java
