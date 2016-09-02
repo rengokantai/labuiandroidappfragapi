@@ -91,3 +91,20 @@ onDestroyView()->onDestroy()->onDetach()
 add fragment: trigger onAttach, onCreate, onCreateView,onResume  
 remove fragment: trigger onPause,onStop  
 addTobackStack: trigger onDestroy,onDetach
+#####3. Manage Fragments at Runtime
+######Pass arguments to a fragment
+Using Bundle (k,v) k=string
+```
+Bundle b = new Bundle()
+BlankFragment bf = new BlankFragment();
+b.putString("","");
+bf.setArguments(b);
+```
+retrieve from BlankFragment.java onCreateView
+```
+Bundle b = getArguments();
+if(b!=null){
+  String s = b.getString("");
+}
+return view;
+```
