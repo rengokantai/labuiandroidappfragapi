@@ -1,11 +1,12 @@
-#### labuiandroidappfragapi
-######Understanding frag
+## labuiandroidappfragapi
+###1 Getting Started
+####Understanding frag
 basic steps:
 - create a java class extending fragment
 - create XML file
 - add fragment to an activity
 - inflate layout
-######Create an app with a fragment
+####Create an app with a fragment
 create a basic activity.  
 tick use a fragment  
 activity_main.xml->content_main.xml->fragment_main.xml  
@@ -13,8 +14,8 @@ in content_main.xml,
 ```
 andriod:name="com....MainActivityFragment"
 ```
-#####2. Display Fragments in Activities
-######Create a fragment class and layout
+###2. Display Fragments in Activities
+####Create a fragment class and layout
 
 create an empty activity.Add a new fragment.Create layout XML but not include fragment factory methods and interface cb.  
 memorize the params:
@@ -38,7 +39,7 @@ use fragment in MainActivity, replace TextView
 <fragment android:id=@+/blank_fragment" class="com..BlankFragment" android:layout_width="wrap_content"
 tools:layout="@layout/fragment_blank"/>
 ```
-######Explore the FragmentTransaction class
+####Explore the FragmentTransaction class
 create placeholder, do not need to add class prop here.  
 activity_main.xml
 ```
@@ -55,12 +56,12 @@ remove fragment
 ```
 getSupportFragmentManager().beginTransaction().remove(bf).commit();
 ```
-######Add a fragment with Java
+####Add a fragment with Java
 02:53  
 add button (centerHorizontal,alignParentBottom)
 
 
-######Remove a fragment with Java
+####Remove a fragment with Java
 use tag as reference
 ```
 public static final String TAG ="KE_TAG"
@@ -77,7 +78,7 @@ addToBackStack: remove when press back
 ```
 beginTransaction().addToBackStack(null).add(R.id.fragment_container,bf,TAG).commit();
 ```
-######The lifecycle of a fragment
+####The lifecycle of a fragment
 resumed: visible and interactive  
 paused: can be visible but without focus  
 stopped: not visible
@@ -93,8 +94,8 @@ remove fragment: trigger onPause,onStop
 addTobackStack: trigger onDestroy,onDetach
 
 
-#####3. Manage Fragments at Runtime
-######Pass arguments to a fragment
+###3. Manage Fragments at Runtime
+####Pass arguments to a fragment
 Using Bundle (k,v) k=string
 ```
 Bundle b = new Bundle()
@@ -110,7 +111,7 @@ if(b!=null){
 }
 return view;
 ```
-######Manage arguments with a factory method
+####Manage arguments with a factory method
 BlankFragment.java
 ```
 public static BlankFragment newInstance(){
@@ -121,7 +122,7 @@ public static BlankFragment newInstance(){
 }
 ```
 for Fragment classes's default constructor,you cant use private
-######Measure screen with Java
+####Measure screen with Java
 ScreenUtility.java
 ```
 public class ScreenUtility{
