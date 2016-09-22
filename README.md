@@ -146,3 +146,5 @@ impl in MainActivity
 ScreenUtility su = new ScreenUtility(this)l
 if(su.getW()>=800){}
 ```
+###5. Display Dialogs with Fragments
+
